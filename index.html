@@ -11,27 +11,98 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
   }
-  h1 { font-size: 2rem; font-weight: 600; margin-bottom: 8px; }
-  p { color: #999; font-size: 1rem; max-width: 400px; line-height: 1.6; }
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 2px solid #333;
+  }
   .tag { 
     background: #1a1a1a; 
     border: 1px solid #333;
     padding: 6px 14px; 
     border-radius: 20px; 
-    font-size: 0.8rem; 
+    font-size: 0.75rem; 
     color: #888;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  h1 { font-size: 1.6rem; font-weight: 600; margin-bottom: 10px; }
+  .subtitle { 
+    color: #999; 
+    font-size: 0.9rem; 
+    max-width: 360px; 
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: #333;
+    margin: 0 auto 28px;
+  }
+  .skills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+    margin-bottom: 28px;
+  }
+  .skill {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #aaa;
+  }
+  .links {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+  }
+  .links a:hover { color: #fff; }
+  .hint {
+    color: #444;
+    font-size: 0.75rem;
+    margin-top: 40px;
   }
 </style>
 </head>
 <body>
+  <img class="avatar" src="Swajay_Icon.jpeg" alt="Swajay Chaudhary" />
   <div class="tag">Solutions Engineer · Berlin</div>
   <h1>Swajay Chaudhary</h1>
-  <p>Ask my AI assistant anything about my experience, projects, or how I work.</p>
+  <p class="subtitle">5+ years in enterprise SaaS. Pre-sales, implementations, AI workflow automation. Ask me anything.</p>
+  <div class="divider"></div>
+  <div class="skills">
+    <span class="skill">Zendesk · Freshdesk</span>
+    <span class="skill">REST APIs</span>
+    <span class="skill">RAG · Vector Search</span>
+    <span class="skill">N8N · Claude API</span>
+    <span class="skill">50+ Implementations</span>
+    <span class="skill">800+ Agent Deployments</span>
+  </div>
+  <div class="links">
+    <a href="mailto:swajayc23@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/swajaychaudhary" target="_blank">LinkedIn</a>
+    <a href="https://tinyurl.com/Swajay-Portfolio" target="_blank">Portfolio</a>
+  </div>
+  <p class="hint">💬 Chat with my AI assistant →</p>
+
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.init({
