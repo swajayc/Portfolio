@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; padding: 0; background: transparent; }
+</style>
+</head>
+<body>
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+        chatflowid: "a56203d7-eb44-494d-8e24-7f539050d658",
+        apiHost: "https://ancient-fog-unenvied.ngrok-free.dev",
+        theme: {
+            button: {
+                backgroundColor: '#000000',
+                right: 20,
+                bottom: 20,
+                size: 48,
+                iconColor: 'white',
+            },
+            tooltip: {
+                showTooltip: true,
+                tooltipMessage: 'Ask me about Swajay 👋',
+                tooltipBackgroundColor: 'black',
+                tooltipTextColor: 'white',
+            },
+            chatWindow: {
+                showTitle: true,
+                title: "Swajay's Portfolio Assistant",
+                welcomeMessage: "Hi! Ask me about Swajay's projects, experience, or technical skills.",
+                starterPrompts: [
+                    "What projects has Swajay worked on?",
+                    "What is his experience with enterprise SaaS?",
+                    "Has he built any AI workflows?"
+                ],
+                textInput: {
+                    placeholder: 'Ask me anything about Swajay...',
+                    sendButtonColor: '#000000',
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
