@@ -2,10 +2,36 @@
 <html>
 <head>
 <style>
-  body { margin: 0; padding: 0; background: transparent; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    background: #0f0f0f; 
+    color: white; 
+    font-family: -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+  h1 { font-size: 2rem; font-weight: 600; margin-bottom: 8px; }
+  p { color: #999; font-size: 1rem; max-width: 400px; line-height: 1.6; }
+  .tag { 
+    background: #1a1a1a; 
+    border: 1px solid #333;
+    padding: 6px 14px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    color: #888;
+    margin-bottom: 24px;
+  }
 </style>
 </head>
 <body>
+  <div class="tag">Solutions Engineer · Berlin</div>
+  <h1>Swajay Chaudhary</h1>
+  <p>Ask my AI assistant anything about my experience, projects, or how I work.</p>
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.init({
@@ -13,27 +39,38 @@
         apiHost: "https://ancient-fog-unenvied.ngrok-free.dev",
         theme: {
             button: {
-                backgroundColor: '#000000',
-                right: 20,
-                bottom: 20,
-                size: 48,
-                iconColor: 'white',
+                backgroundColor: '#ffffff',
+                right: 30,
+                bottom: 30,
+                size: 52,
+                iconColor: '#000000',
             },
             tooltip: {
                 showTooltip: true,
                 tooltipMessage: 'Ask me about Swajay 👋',
-                tooltipBackgroundColor: 'black',
-                tooltipTextColor: 'white',
+                tooltipBackgroundColor: '#ffffff',
+                tooltipTextColor: '#000000',
             },
             chatWindow: {
                 showTitle: true,
                 title: "Swajay's Portfolio Assistant",
                 welcomeMessage: "Hi! Ask me about Swajay's projects, experience, or technical skills.",
+                backgroundColor: '#ffffff',
                 starterPrompts: [
                     "What projects has Swajay worked on?",
-                    "What is his experience with enterprise SaaS?",
+                    "What is his SE experience?",
                     "Has he built any AI workflows?"
                 ],
+                botMessage: {
+                    backgroundColor: '#f7f8ff',
+                    textColor: '#303235',
+                    showAvatar: false,
+                },
+                userMessage: {
+                    backgroundColor: '#000000',
+                    textColor: '#ffffff',
+                    showAvatar: false,
+                },
                 textInput: {
                     placeholder: 'Ask me anything about Swajay...',
                     sendButtonColor: '#000000',
