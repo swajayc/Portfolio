@@ -77,16 +77,16 @@
   .links a:hover { color: #fff; }
 
   /* --------------------------------------------------------- */
-  /* === STYLING FOR THE NEW PROMINENT CTA BOX ===           */
+  /* PROMINENT CENTRAL CTA BOX STYLING                         */
   /* --------------------------------------------------------- */
   .cta-block {
-    background: #1a1a1a; /* Dark gray, matching the theme */
-    border: 1px solid #333; /* Subtler border color */
+    background: #1a1a1a;
+    border: 1px solid #333;
     padding: 28px;
     border-radius: 12px;
     max-width: 500px;
     width: 90%;
-    margin: 40px auto; /* Centered, unavoidable on the page */
+    margin: 40px auto;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
@@ -95,17 +95,38 @@
     font-size: 1.1rem;
     margin-bottom: 12px;
     color: white;
+    letter-spacing: 0.03em;
   }
   .cta-desc {
     color: #aaa;
     font-size: 0.85rem;
     line-height: 1.6;
   }
-  .cta-desc span { font-weight: 600; color: #fff; } /* Bolds for key parts */
-  .cta-desc small { display: block; margin-top: 6px; font-size: 0.75rem; } /* Small alignment note */
+  .cta-desc span { font-weight: 600; color: #fff; }
+  .cta-desc small { display: block; margin-top: 6px; font-size: 0.75rem; }
+
+  /* --------------------------------------------------------- */
+  /* IRONCLAD WIDGET DECOUPLING OVERRIDES (FINALLY SEPARATES THEM) */
+  /* --------------------------------------------------------- */
+  
+  /* Snatch the Flowise Text Button Container & Move it Left */
+  flowise-chatbot,
+  .flowise-embed,
+  div[style*="right: 30px"],
+  div[style*="right:30px"] {
+    right: auto !important;
+    left: 30px !important;
+  }
+
+  /* Ensure the Vapi Voice Widget owns the Right side completely */
+  vapi-widget {
+    left: auto !important;
+    right: 30px !important;
+  }
 </style>
 </head>
 <body>
+
   <img class="avatar" src="https://raw.githubusercontent.com/swajayc/Portfolio/main/Swajay_Icon.jpg" alt="Swajay Chaudhary" />
   <div class="tag">Solutions Engineer • Berlin</div>
   <h1>Swajay Chaudhary</h1>
@@ -125,9 +146,7 @@
     <a href="https://tinyurl.com/Swajay-Portfolio" target="_blank">Portfolio</a>
   </div>
 
-  <!-- ========================================================= -->
-  /* === NEW PROMINENT CALL-TO-ACTION (CTA) BOX ===           */
-  <!-- ========================================================= -->
+  <!-- PROMINENT CALL-TO-ACTION (CTA) BOX -->
   <div class="cta-block">
     <div class="cta-title">REQUEST A SYSTEM DEEP-DIVE</div>
     <div class="cta-desc">
@@ -140,7 +159,7 @@
 
 
 <!-- ========================================================= -->
-<!-- 1. FLOWISE TEXT CHATBOT (Shifted to LEFT Corner)          -->
+<!-- 1. FLOWISE TEXT CHATBOT CONFIGURATION                     -->
 <!-- ========================================================= -->
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
@@ -150,14 +169,14 @@
         theme: {
             button: {
                 backgroundColor: '#ffffff',
-                left: 30,          /* CRITICAL: Shifted from default 'right' to 'left' */
+                right: 30, /* Reset to standard syntax, custom CSS wrapper shifts it left */
                 bottom: 30,
                 size: 52,
                 iconColor: '#000000',
             },
             tooltip: {
                 showTooltip: true,
-                tooltipMessage: 'Ask me about Swajay👋',
+                tooltipMessage: 'Ask me about Swajay 👋',
                 tooltipBackgroundColor: '#ffffff',
                 tooltipTextColor: '#000000',
             },
@@ -191,14 +210,14 @@
 </script>
 
 <!-- ========================================================= -->
-<!-- 2. VAPI VOICE ASSISTANT (Anchored to RIGHT Corner)        -->
+<!-- 2. VAPI VOICE ASSISTANT CONFIGURATION                     -->
 <!-- ========================================================= -->
 <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
 <vapi-widget
-  public-key="PASTE_YOUR_PUBLIC_KEY_HERE"  /* <- Just need this from Vapi */
+  public-key="PASTE_YOUR_PUBLIC_KEY_HERE"  <!-- Keep your valid public key right here -->
   assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1f98015"
   mode="voice"
-  theme="dark" /* Switched to dark theme for best contrast */
+  theme="dark"
 ></vapi-widget>
 
 </body>
