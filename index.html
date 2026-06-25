@@ -75,63 +75,24 @@
     transition: color 0.2s;
   }
   .links a:hover { color: #fff; }
-
-  /* --------------------------------------------------------- */
-  /* CENTRAL CALLOUT CARD STYLING                              */
-  /* --------------------------------------------------------- */
-  .cta-block {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    padding: 28px;
-    border-radius: 12px;
-    max-width: 500px;
-    width: 90%;
-    margin: 40px auto;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .cta-title {
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    color: white;
-    letter-spacing: 0.03em;
-  }
-  .cta-desc {
-    color: #aaa;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-  .cta-desc span { font-weight: 600; color: #fff; }
-
-  /* --------------------------------------------------------- */
-  /* THE VAPI CENTERING HACK (Captures fixed elements)         */
-  /* --------------------------------------------------------- */
-  .vapi-inline-container {
-    display: block;
-    position: relative;
-    width: 112px;
-    height: 112px;
-    margin: 16px auto 0;
-    overflow: hidden;
-    /* Forces third-party fixed layout modules to render relative to this box */
-    transform: translate(0, 0) scale(1); 
+  .hint {
+    color: #444;
+    font-size: 0.75rem;
+    margin-top: 40px;
   }
 </style>
 </head>
 <body>
-
   <img class="avatar" src="https://raw.githubusercontent.com/swajayc/Portfolio/main/Swajay_Icon.jpg" alt="Swajay Chaudhary" />
-  <div class="tag">Solutions Engineer • Berlin</div>
+  <div class="tag">Solutions Engineer · Berlin</div>
   <h1>Swajay Chaudhary</h1>
   <p class="subtitle">5+ years in enterprise SaaS. Pre-sales, implementations, AI workflow automation. Ask me anything.</p>
   <div class="divider"></div>
   <div class="skills">
-    <span class="skill">Zendesk • Freshdesk</span>
+    <span class="skill">Zendesk · Freshdesk</span>
     <span class="skill">REST APIs</span>
-    <span class="skill">RAG • Vector Search</span>
-    <span class="skill">N8N • Claude API</span>
+    <span class="skill">RAG · Vector Search</span>
+    <span class="skill">N8N · Claude API</span>
     <span class="skill">50+ Implementations</span>
     <span class="skill">800+ Agent Deployments</span>
   </div>
@@ -140,29 +101,8 @@
     <a href="https://linkedin.com/in/swajaychaudhary" target="_blank">LinkedIn</a>
     <a href="https://tinyurl.com/Swajay-Portfolio" target="_blank">Portfolio</a>
   </div>
+  <p class="hint">💬 Chat with my AI assistant →</p>
 
-  <!-- CENTRAL CALL-TO-ACTION CONTAINER -->
-  <div class="cta-block">
-    <div class="cta-title">REQUEST A SYSTEM DEEP-DIVE</div>
-    <div class="cta-desc">
-      Explore projects by texting or starting an AI voice call.
-    </div>
-    
-    <!-- Isolated viewport container for the voice assistant button -->
-    <div class="vapi-inline-container">
-      <vapi-widget
-        public-key="PASTE_YOUR_PUBLIC_KEY_HERE"
-        assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1f98015"
-        mode="voice"
-        theme="dark"
-      ></vapi-widget>
-    </div>
-  </div>
-
-
-<!-- ========================================================= -->
-<!-- 1. FLOWISE TEXT CHATBOT (Sits cleanly on bottom right)    -->
-<!-- ========================================================= -->
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.init({
@@ -171,7 +111,7 @@
         theme: {
             button: {
                 backgroundColor: '#ffffff',
-                right: 30, 
+                right: 30,
                 bottom: 30,
                 size: 52,
                 iconColor: '#000000',
@@ -210,11 +150,5 @@
         }
     })
 </script>
-
-<!-- ========================================================= -->
-<!-- 2. VAPI CORE ENGINE INITIALIZER                           -->
-<!-- ========================================================= -->
-<script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
-
 </body>
 </html>
