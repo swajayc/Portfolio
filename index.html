@@ -77,7 +77,7 @@
   .links a:hover { color: #fff; }
 
   /* --------------------------------------------------------- */
-  /* PROMINENT CENTRAL CTA BOX STYLING                         */
+  /* CENTRAL CALLOUT CARD STYLING                              */
   /* --------------------------------------------------------- */
   .cta-block {
     background: #1a1a1a;
@@ -101,27 +101,22 @@
     color: #aaa;
     font-size: 0.85rem;
     line-height: 1.6;
+    margin-bottom: 16px;
   }
   .cta-desc span { font-weight: 600; color: #fff; }
-  .cta-desc small { display: block; margin-top: 6px; font-size: 0.75rem; }
 
   /* --------------------------------------------------------- */
-  /* IRONCLAD WIDGET DECOUPLING OVERRIDES (FINALLY SEPARATES THEM) */
+  /* THE VAPI CENTERING HACK (Captures fixed elements)         */
   /* --------------------------------------------------------- */
-  
-  /* Snatch the Flowise Text Button Container & Move it Left */
-  flowise-chatbot,
-  .flowise-embed,
-  div[style*="right: 30px"],
-  div[style*="right:30px"] {
-    right: auto !important;
-    left: 30px !important;
-  }
-
-  /* Ensure the Vapi Voice Widget owns the Right side completely */
-  vapi-widget {
-    left: auto !important;
-    right: 30px !important;
+  .vapi-inline-container {
+    display: block;
+    position: relative;
+    width: 112px;
+    height: 112px;
+    margin: 16px auto 0;
+    overflow: hidden;
+    /* Forces third-party fixed layout modules to render relative to this box */
+    transform: translate(0, 0) scale(1); 
   }
 </style>
 </head>
@@ -146,20 +141,27 @@
     <a href="https://tinyurl.com/Swajay-Portfolio" target="_blank">Portfolio</a>
   </div>
 
-  <!-- PROMINENT CALL-TO-ACTION (CTA) BOX -->
+  <!-- CENTRAL CALL-TO-ACTION CONTAINER -->
   <div class="cta-block">
     <div class="cta-title">REQUEST A SYSTEM DEEP-DIVE</div>
     <div class="cta-desc">
-      <span>💬 Chat with my AI Assistant</span> (Bottom-Left)<br>
-      or<br>
-      <span>📞 Schedule/Start a Call</span> (Bottom-Right)<br>
-      <small>to explore projects and architecture.</small>
+      Explore projects by texting or starting an AI voice call.
+    </div>
+    
+    <!-- Isolated viewport container for the voice assistant button -->
+    <div class="vapi-inline-container">
+      <vapi-widget
+        public-key="PASTE_YOUR_PUBLIC_KEY_HERE"
+        assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1f98015"
+        mode="voice"
+        theme="dark"
+      ></vapi-widget>
     </div>
   </div>
 
 
 <!-- ========================================================= -->
-<!-- 1. FLOWISE TEXT CHATBOT CONFIGURATION                     -->
+<!-- 1. FLOWISE TEXT CHATBOT (Sits cleanly on bottom right)    -->
 <!-- ========================================================= -->
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
@@ -169,7 +171,7 @@
         theme: {
             button: {
                 backgroundColor: '#ffffff',
-                right: 30, /* Reset to standard syntax, custom CSS wrapper shifts it left */
+                right: 30, 
                 bottom: 30,
                 size: 52,
                 iconColor: '#000000',
@@ -210,15 +212,9 @@
 </script>
 
 <!-- ========================================================= -->
-<!-- 2. VAPI VOICE ASSISTANT CONFIGURATION                     -->
+<!-- 2. VAPI CORE ENGINE INITIALIZER                           -->
 <!-- ========================================================= -->
 <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
-<vapi-widget
-  public-key="PASTE_YOUR_PUBLIC_KEY_HERE"  <!-- Keep your valid public key right here -->
-  assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1f98015"
-  mode="voice"
-  theme="dark"
-></vapi-widget>
 
 </body>
 </html>
