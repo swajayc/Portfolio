@@ -75,24 +75,47 @@
     transition: color 0.2s;
   }
   .links a:hover { color: #fff; }
-  .hint {
-    color: #444;
-    font-size: 0.75rem;
-    margin-top: 40px;
+
+  /* --------------------------------------------------------- */
+  /* === STYLING FOR THE NEW PROMINENT CTA BOX ===           */
+  /* --------------------------------------------------------- */
+  .cta-block {
+    background: #1a1a1a; /* Dark gray, matching the theme */
+    border: 1px solid #333; /* Subtler border color */
+    padding: 28px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    margin: 40px auto; /* Centered, unavoidable on the page */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
+  .cta-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: white;
+  }
+  .cta-desc {
+    color: #aaa;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .cta-desc span { font-weight: 600; color: #fff; } /* Bolds for key parts */
+  .cta-desc small { display: block; margin-top: 6px; font-size: 0.75rem; } /* Small alignment note */
 </style>
 </head>
 <body>
   <img class="avatar" src="https://raw.githubusercontent.com/swajayc/Portfolio/main/Swajay_Icon.jpg" alt="Swajay Chaudhary" />
-  <div class="tag">Solutions Engineer · Berlin</div>
+  <div class="tag">Solutions Engineer • Berlin</div>
   <h1>Swajay Chaudhary</h1>
   <p class="subtitle">5+ years in enterprise SaaS. Pre-sales, implementations, AI workflow automation. Ask me anything.</p>
   <div class="divider"></div>
   <div class="skills">
-    <span class="skill">Zendesk · Freshdesk</span>
+    <span class="skill">Zendesk • Freshdesk</span>
     <span class="skill">REST APIs</span>
-    <span class="skill">RAG · Vector Search</span>
-    <span class="skill">N8N · Claude API</span>
+    <span class="skill">RAG • Vector Search</span>
+    <span class="skill">N8N • Claude API</span>
     <span class="skill">50+ Implementations</span>
     <span class="skill">800+ Agent Deployments</span>
   </div>
@@ -101,10 +124,23 @@
     <a href="https://linkedin.com/in/swajaychaudhary" target="_blank">LinkedIn</a>
     <a href="https://tinyurl.com/Swajay-Portfolio" target="_blank">Portfolio</a>
   </div>
-  <p class="hint">💬 Chat (Left) or 📞 Call (Right) my AI assistant</p>
+
+  <!-- ========================================================= -->
+  /* === NEW PROMINENT CALL-TO-ACTION (CTA) BOX ===           */
+  <!-- ========================================================= -->
+  <div class="cta-block">
+    <div class="cta-title">REQUEST A SYSTEM DEEP-DIVE</div>
+    <div class="cta-desc">
+      <span>💬 Chat with my AI Assistant</span> (Bottom-Left)<br>
+      or<br>
+      <span>📞 Schedule/Start a Call</span> (Bottom-Right)<br>
+      <small>to explore projects and architecture.</small>
+    </div>
+  </div>
+
 
 <!-- ========================================================= -->
-<!-- 1. FLOWISE TEXT CHATBOT (Shifted to Left Side)            -->
+<!-- 1. FLOWISE TEXT CHATBOT (Shifted to LEFT Corner)          -->
 <!-- ========================================================= -->
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
@@ -114,14 +150,14 @@
         theme: {
             button: {
                 backgroundColor: '#ffffff',
-                left: 30,         /* Shifted to the left corner */
+                left: 30,          /* CRITICAL: Shifted from default 'right' to 'left' */
                 bottom: 30,
                 size: 52,
                 iconColor: '#000000',
             },
             tooltip: {
                 showTooltip: true,
-                tooltipMessage: 'Ask me about Swajay 👋',
+                tooltipMessage: 'Ask me about Swajay👋',
                 tooltipBackgroundColor: '#ffffff',
                 tooltipTextColor: '#000000',
             },
@@ -155,14 +191,14 @@
 </script>
 
 <!-- ========================================================= -->
-<!-- 2. VAPI VOICE ASSISTANT (Anchored to Right Side)          -->
+<!-- 2. VAPI VOICE ASSISTANT (Anchored to RIGHT Corner)        -->
 <!-- ========================================================= -->
 <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
 <vapi-widget
-  public-key="66e8e586-5413-4493-9d35-3354bc0a6916"
-  assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1968015"
+  public-key="PASTE_YOUR_PUBLIC_KEY_HERE"  /* <- Just need this from Vapi */
+  assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1f98015"
   mode="voice"
-  theme="dark"
+  theme="dark" /* Switched to dark theme for best contrast */
 ></vapi-widget>
 
 </body>
