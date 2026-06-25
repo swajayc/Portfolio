@@ -17,7 +17,7 @@
   }
   .avatar {
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 16px;
@@ -101,8 +101,11 @@
     <a href="https://linkedin.com/in/swajaychaudhary" target="_blank">LinkedIn</a>
     <a href="https://tinyurl.com/Swajay-Portfolio" target="_blank">Portfolio</a>
   </div>
-  <p class="hint">💬 Chat with my AI assistant →</p>
+  <p class="hint">💬 Chat (Left) or 📞 Call (Right) my AI assistant</p>
 
+<!-- ========================================================= -->
+<!-- 1. FLOWISE TEXT CHATBOT (Shifted to Left Side)            -->
+<!-- ========================================================= -->
 <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.init({
@@ -111,7 +114,7 @@
         theme: {
             button: {
                 backgroundColor: '#ffffff',
-                right: 30,
+                left: 30,         /* Shifted to the left corner */
                 bottom: 30,
                 size: 52,
                 iconColor: '#000000',
@@ -150,5 +153,17 @@
         }
     })
 </script>
+
+<!-- ========================================================= -->
+<!-- 2. VAPI VOICE ASSISTANT (Anchored to Right Side)          -->
+<!-- ========================================================= -->
+<script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+<vapi-widget
+  public-key="66e8e586-5413-4493-9d35-3354bc0a6916"
+  assistant-id="dc1a0284-1d89-47a8-8d9d-7c96f1968015"
+  mode="voice"
+  theme="dark"
+></vapi-widget>
+
 </body>
 </html>
